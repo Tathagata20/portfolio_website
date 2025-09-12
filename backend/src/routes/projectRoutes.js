@@ -1,7 +1,7 @@
 // routes/projects.js
 const express = require("express");
 const router = express.Router();
-const Project = require("../models/Project");
+const Project = require("../models/project");
 const upload = require("../middleware/upload");
 const projectController = require("../controllers/projectController");
 

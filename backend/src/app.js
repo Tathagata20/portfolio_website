@@ -19,7 +19,7 @@ const projectRoutes = require('./routes/projectRoutes');
 const messageRoutes = require('./routes/messageRoutes');
 
 app.use(cors({
-  origin: "http://localhost:5173", // your frontend
+  origin: "https://portfolio-website-react-9l1h.onrender.com", // your frontend
   methods: ["GET", "POST"],
   allowedHeaders: ["Content-Type"],
 }));

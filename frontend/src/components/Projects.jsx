@@ -68,12 +68,13 @@ export default function Projects() {
                 exit={{ y: 50, opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               >
-                <img
+                <div className="h-screen w-full">
+                  <img
                   src={`${import.meta.env.VITE_IMAGE_BASE_URL}/${selectedProject.image}`}
-                  className="relative opacity-40 h-screen w-full object-cover"
+                  className="relative opacity-40 h-full w-full object-cover"
                   alt=""
                 />
-                <div className="absolute top-6 z-40">
+                <div className="absolute h-full w-full top-6 z-40">
                   <button
                     onClick={() => setSelectedProject(null)}
                     className="absolute top-0.5 right-3 text-gray-600 hover:text-black text-xl"
@@ -130,6 +131,8 @@ export default function Projects() {
                     )}
                   </div>
                 </div>
+                </div>
+                
               </motion.div>
             </motion.div>
           )}

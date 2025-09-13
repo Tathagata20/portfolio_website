@@ -68,7 +68,7 @@ export default function Projects() {
                 exit={{ y: 50, opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               >
-                <div className="h-auto w-full">
+                <div className="h-fit w-full">
                   <img
                   src={`${import.meta.env.VITE_IMAGE_BASE_URL}/${selectedProject.image}`}
                   className="relative opacity-40 h-full w-full object-cover"

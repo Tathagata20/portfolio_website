@@ -69,78 +69,78 @@ export default function Projects() {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               >
                 <div className="relative w-full h-screen">
-  {/* Fullscreen background image */}
-  <img
-    src={`${import.meta.env.VITE_API_BASE_URL}/${selectedProject.image}`}
-    alt={selectedProject.title}
-    className="absolute opacity-55 inset-0 w-full h-full object-cover"
-  />
+                  {/* Fullscreen background image */}
+                  <img
+                    src={`${import.meta.env.VITE_IMAGE_BASE_URL}/${selectedProject.image}`}
+                    alt={selectedProject.title}
+                    className="absolute opacity-55 inset-0 w-full h-full object-cover"
+                  />
 
-  {/* Dark overlay with scrollable content */}
-  <div className="absolute inset-0 bg-black/40 overflow-y-auto">
-    {/* Close button */}
-    <button
-      onClick={() => setSelectedProject(null)}
-      className="absolute top-2 right-3 text-white hover:text-gray-300 text-2xl"
-    >
-      ✕
-    </button>
+                  {/* Dark overlay with scrollable content */}
+                  <div className="absolute inset-0 bg-black/40 overflow-y-auto">
+                    {/* Close button */}
+                    <button
+                      onClick={() => setSelectedProject(null)}
+                      className="absolute top-2 right-3 text-white hover:text-gray-300 text-2xl"
+                    >
+                      ✕
+                    </button>
 
-    {/* Content */}
-    <div className="p-6 mt-8 text-white">
-      <h3 className="text-2xl font-bold mb-2">{selectedProject.title}</h3>
-      <p className="mb-4">{selectedProject.description}</p>
+                    {/* Content */}
+                    <div className="p-6 mt-8 text-white">
+                      <h3 className="text-2xl font-bold mb-2">{selectedProject.title}</h3>
+                      <p className="mb-4">{selectedProject.description}</p>
 
-      <h4 className="font-semibold mb-2">Tech Stack:</h4>
-      <ul className="flex gap-2 flex-wrap mb-4">
-        {selectedProject.techStack.map((tech, idx) => (
-          <li
-            key={idx}
-            className="px-3 py-1 bg-gray-200 text-black rounded-full text-sm"
-          >
-            {tech}
-          </li>
-        ))}
-      </ul>
+                      <h4 className="font-semibold mb-2">Tech Stack:</h4>
+                      <ul className="flex gap-2 flex-wrap mb-4">
+                        {selectedProject.techStack.map((tech, idx) => (
+                          <li
+                            key={idx}
+                            className="px-3 py-1 bg-gray-200 text-black rounded-full text-sm"
+                          >
+                            {tech}
+                          </li>
+                        ))}
+                      </ul>
 
-      {selectedProject.details?.length > 0 && (
-        <>
-          <h4 className="font-semibold mb-2">Details:</h4>
-          <ul className="list-disc pl-6 mb-4 space-y-1">
-            {selectedProject.details.map((point, idx) => (
-              <li key={idx}>{point}</li>
-            ))}
-          </ul>
-        </>
-      )}
+                      {selectedProject.details?.length > 0 && (
+                        <>
+                          <h4 className="font-semibold mb-2">Details:</h4>
+                          <ul className="list-disc pl-6 mb-4 space-y-1">
+                            {selectedProject.details.map((point, idx) => (
+                              <li key={idx}>{point}</li>
+                            ))}
+                          </ul>
+                        </>
+                      )}
 
-      <div className="flex gap-4">
-        {selectedProject.githubLink && (
-          <a
-            href={selectedProject.githubLink}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-gray-600 text-white px-4 py-2 rounded-md"
-          >
-            GitHub
-          </a>
-        )}
-        {selectedProject.liveDemo && (
-          <a
-            href={selectedProject.liveDemo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-green-400 hover:underline"
-          >
-            Live Demo
-          </a>
-        )}
-      </div>
-    </div>
-  </div>
-</div>
+                      <div className="flex gap-4">
+                        {selectedProject.githubLink && (
+                          <a
+                            href={selectedProject.githubLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="bg-gray-600 text-white px-4 py-2 rounded-md"
+                          >
+                            GitHub
+                          </a>
+                        )}
+                        {selectedProject.liveDemo && (
+                          <a
+                            href={selectedProject.liveDemo}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-green-400 hover:underline"
+                          >
+                            Live Demo
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                </div>
 
-                
+
               </motion.div>
             </motion.div>
           )}

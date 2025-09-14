@@ -87,3 +87,32 @@ exports.deleteProject = async (req, res) => {
     });
   }
 };
+
+// Update only the project image
+exports.updateProjectImage = async (req, res) => {
+  try {
+    const projectId = req.params.id;
+
+    if (!req.file) {
+      return res.status(400).json({ error: "No image uploaded" });
+    }
+
+    const updatedProject = await Project.findByIdAndUpdate(
+      projectId,
+      { image: req.file.filename },
+      { new: true } // returns updated document
+    );
+
+    if (!updatedProject) {
+      return res.status(404).json({ error: "Project not found" });
+    }
+
+    res.status(200).json({
+      message: "Image updated successfully",
+      project: updatedProject,
+    });
+  } catch (err) {
+    console.error("Error updating project image:", err);
+    res.status(500).json({ error: "Server error" });
+  }
+};

@@ -11,4 +11,6 @@ router.post("/", upload.single("image"), projectController.createProject);
 // Get projects
 router.get("/", projectController.getProjects);
 
+router.put("/:id/image", upload.single("image"), projectController.updateProjectImage);
+
 module.exports = router;

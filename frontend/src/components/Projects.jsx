@@ -87,7 +87,7 @@ export default function Projects() {
                     </button>
 
                     {/* Content */}
-                    <div className="p-6 mt-8 text-white">
+                    <div className="p-6 mt-8 text-white text-start">
                       <h3 className="text-2xl font-bold mb-2">{selectedProject.title}</h3>
                       <p className="mb-4">{selectedProject.description}</p>
 

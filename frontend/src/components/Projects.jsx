@@ -68,70 +68,78 @@ export default function Projects() {
                 exit={{ y: 50, opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               >
-                <div className="h-fit w-full">
-                  <img
-                  src={`${import.meta.env.VITE_IMAGE_BASE_URL}/${selectedProject.image}`}
-                  className="relative opacity-40 h-full w-full object-cover"
-                  alt=""
-                />
-                <div className="absolute h-full w-full top-6 z-40">
-                  <button
-                    onClick={() => setSelectedProject(null)}
-                    className="absolute top-0.5 right-3 text-gray-600 hover:text-black text-xl"
-                  >
-                    ✕
-                  </button>
-                  <h3 className="text-start text-2xl font-bold mb-2 pl-6">
-                    {selectedProject.title}
-                  </h3>
-                  <p className="text-start text-black mb-4 pl-6">
-                    {selectedProject.description}
-                  </p>
-                  <h4 className="text-start font-semibold pl-6 mb-5">Tech Stack:</h4>
-                  <ul className="flex gap-2 flex-wrap mb-4 pl-6">
-                    {selectedProject.techStack.map((tech, idx) => (
-                      <li
-                        key={idx}
-                        className="px-3 py-1 bg-gray-200 rounded-full text-sm"
-                      >
-                        {tech}
-                      </li>
-                    ))}
-                  </ul>
-                  {selectedProject.details?.length > 0 && (
-                    <>
-                      <h4 className="font-semibold pl-6">Details:</h4>
-                      <ul className="list-disc text-left mb-4 pl-8">
-                        {selectedProject.details.map((point, idx) => (
-                          <li key={idx}>{point}</li>
-                        ))}
-                      </ul>
-                    </>
-                  )}
-                  <div className="flex gap-4">
-                    {selectedProject.githubLink && (
-                      <a
-                        href={selectedProject.githubLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="bg-gray-600 text-white px-4 py-2 rounded-md ml-6"
-                      >
-                        GitHub
-                      </a>
-                    )}
-                    {selectedProject.liveDemo && (
-                      <a
-                        href={selectedProject.liveDemo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-green-600 hover:underline"
-                      >
-                        Live Demo
-                      </a>
-                    )}
-                  </div>
-                </div>
-                </div>
+                <div className="relative w-full h-screen">
+  {/* Fullscreen background image */}
+  <img
+    src={`${import.meta.env.VITE_API_BASE_URL}/${selectedProject.image}`}
+    alt={selectedProject.title}
+    className="absolute opacity-55 inset-0 w-full h-full object-cover"
+  />
+
+  {/* Dark overlay with scrollable content */}
+  <div className="absolute inset-0 bg-black/40 overflow-y-auto">
+    {/* Close button */}
+    <button
+      onClick={() => setSelectedProject(null)}
+      className="absolute top-2 right-3 text-white hover:text-gray-300 text-2xl"
+    >
+      ✕
+    </button>
+
+    {/* Content */}
+    <div className="p-6 mt-8 text-white">
+      <h3 className="text-2xl font-bold mb-2">{selectedProject.title}</h3>
+      <p className="mb-4">{selectedProject.description}</p>
+
+      <h4 className="font-semibold mb-2">Tech Stack:</h4>
+      <ul className="flex gap-2 flex-wrap mb-4">
+        {selectedProject.techStack.map((tech, idx) => (
+          <li
+            key={idx}
+            className="px-3 py-1 bg-gray-200 text-black rounded-full text-sm"
+          >
+            {tech}
+          </li>
+        ))}
+      </ul>
+
+      {selectedProject.details?.length > 0 && (
+        <>
+          <h4 className="font-semibold mb-2">Details:</h4>
+          <ul className="list-disc pl-6 mb-4 space-y-1">
+            {selectedProject.details.map((point, idx) => (
+              <li key={idx}>{point}</li>
+            ))}
+          </ul>
+        </>
+      )}
+
+      <div className="flex gap-4">
+        {selectedProject.githubLink && (
+          <a
+            href={selectedProject.githubLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-gray-600 text-white px-4 py-2 rounded-md"
+          >
+            GitHub
+          </a>
+        )}
+        {selectedProject.liveDemo && (
+          <a
+            href={selectedProject.liveDemo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-green-400 hover:underline"
+          >
+            Live Demo
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+</div>
+
                 
               </motion.div>
             </motion.div>
